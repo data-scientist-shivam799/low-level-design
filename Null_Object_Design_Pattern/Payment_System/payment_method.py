@@ -11,8 +11,12 @@ We start by defining an interface for the payment method with the method process
 from abc import ABC, abstractmethod
 
 class PaymentMethod(ABC):
+    """
+    This is an abstract class for payment processing.
+    """
     @abstractmethod
     def process_payment(self):
+        """Abstract method to process payment."""
         pass
 
 # Step 2: Create Concrete PaymentMethod Classes
@@ -23,10 +27,24 @@ It follows Is-A relationship with PaymentMethod.
 
 class CreditCard(PaymentMethod):
     def process_payment(self, amount):
+        """
+        Process the payment using the specified amount.
+        Args:
+            amount (float): The amount to be processed.
+        Returns:
+            str: A message indicating the payment processing method and amount.
+        """
         return f"Processed ${amount} via Credit Card."
     
 class PayPal(PaymentMethod):
     def process_payment(self, amount):
+        """
+        Process the payment using the given amount.
+        Args:
+            amount (float): The amount to be processed
+        Returns:
+            str: A message indicating the payment processing method and amount
+        """
         return f"Processed ${amount} via PayPal."
     
 # Step 3: Implement the NullPaymentMethod Class
@@ -36,6 +54,13 @@ Now we implement the NullPaymentMethod class that provides a no-op implementatio
 
 class NullPaymentMethod(PaymentMethod):
     def process_payment(self, amount):
+        """
+        Process the payment for the given amount.
+        Args:
+            amount (float): The amount to be processed.
+        Returns:
+            str: A message indicating that no payment method is set up for the given amount.
+        """
         # No-op implementation: Log a message or do nothing
         return f"No payment method set up for processing ${amount}."
     
@@ -45,6 +70,14 @@ In the client code, we can now handle payments without worrying whether the paym
 """
 
 def process_user_payment(payment_method: PaymentMethod, amount):
+    """
+    Process user payment using the given payment method and amount.
+    Args:
+        payment_method (PaymentMethod): The method of payment to be used.
+        amount (float): The amount to be processed.
+    Returns:
+        PaymentResult: The result of the payment processing.
+    """
     result = payment_method.process_payment(amount)
     return result
 
