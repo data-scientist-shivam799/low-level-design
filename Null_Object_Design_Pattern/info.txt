@@ -1,0 +1,2 @@
+ The Null Object Design Pattern is a design pattern that uses polymorphism to provide a default object as a substitute for a null reference. 
+ Its purpose is to encapsulate the absence of an object by providing a substitutable alternative that offers default do-nothing behavior.
