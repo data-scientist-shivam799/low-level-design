@@ -43,7 +43,13 @@ Finally, we'll use these classes in a client code, which can handle Animal objec
 """
 
 def animal_sound(animal: Animal):
-    """No need to check for None, as `make_sound` is guaranteed to be implemented"""
+    """
+    Prints the sound made by the given animal.
+    
+    Args:
+        animal (Animal): It specifies the type hint, indicating that the animal parameter should be of type Animal. 
+        This means that when calling this function, you should pass an object of a class that inherits from or implements the Animal class/interface.
+    """
     print(animal.make_sound())
 
 # creating concrete animal objects
