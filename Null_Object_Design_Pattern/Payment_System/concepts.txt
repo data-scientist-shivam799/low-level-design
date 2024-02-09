@@ -1,0 +1,34 @@
+Here are the concepts and relationships used:
+
+1. Interface (PaymentMethod):
+    - An abstract base class PaymentMethod is defined using Python's ABC module, which stands for Abstract Base Class.
+    - It uses the @abstractmethod decorator to declare process_payment as an abstract method, enforcing subclasses to implement this method.
+
+2. Inheritance:
+    - Concrete classes CreditCard, PayPal, and NullPaymentMethod inherit from PaymentMethod.
+    - This is an "Is-A" relationship because each concrete class is a PaymentMethod.
+
+3. Encapsulation:
+    - Each concrete class encapsulates the details of how the payment is processed.
+
+4. Polymorphism:
+    - The client code (process_user_payment function) can call process_payment on any object that is a PaymentMethod, without needing to know the type of 
+      payment method.
+    - This is possible because each concrete payment class has its own implementation of process_payment, which is a classic example of polymorphism.
+
+5. Null Object Pattern (NullPaymentMethod):
+    - The NullPaymentMethod class is an implementation of the null object pattern.
+    - It provides a do-nothing (no-op) implementation of the process_payment method, which is useful for avoiding null checks in client code.
+
+6. Dependency Inversion Principle:
+    - This principle is part of SOLID design principles, and it's observed in the client code which depends upon the PaymentMethod interface rather 
+      than concrete implementations.
+    - This allows for flexibility in the client code since it can work with any payment method that implements the PaymentMethod interface.
+
+7. Client Code (process_user_payment function):
+    - It takes a PaymentMethod and an amount as arguments and processes the payment by calling the process_payment method of the PaymentMethod.
+    - This function is agnostic of the actual payment method being used and thus demonstrates the use of the interface.
+
+Overall, the system is designed to easily accommodate new payment methods without changing the existing client code, showing good adherence to the 
+Open/Closed Principle, another SOLID design principle. The use of the null object pattern also ensures that the client code remains clean and free of 
+null checks.

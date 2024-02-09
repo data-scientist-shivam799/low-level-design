@@ -1,0 +1,32 @@
+Concepts:
+1. Interface (Animal): 
+    An abstract base class that defines a contract for its subclasses with an abstract method make_sound.
+
+2. Abstract Methods: 
+    The make_sound method within the Animal class is an abstract method, indicating subclasses must provide an implementation 
+    for the method.
+
+3. Concrete Classes (Dog, Cat): 
+    These classes inherit from Animal and provide specific implementations of the make_sound method that return sounds 
+    characteristic of the respective animal.
+
+4. Null Object (NullAnimal): 
+    A class that also implements the Animal interface but provides a no-op (no operation) implementation of the make_sound method. 
+    This is used instead of None to avoid null checks in client code.
+
+5. Client Code: 
+    A function animal_sound that accepts an Animal object and prints the result of the make_sound method. This demonstrates 
+    polymorphism, as the function can accept any object that implements the Animal interface.
+
+Relations:
+1. Inheritance: Dog, Cat, and NullAnimal inherit from the Animal class.
+
+2. Polymorphism: The animal_sound function can operate on objects of type Animal, including its subclasses Dog, Cat, or NullAnimal,
+   without knowing the specific type of the object.
+
+3. Encapsulation: The make_sound method encapsulates the behavior of making a sound specific to each animal.
+
+4. Type Hinting: The animal_sound function uses type hints to indicate that it expects an instance of the Animal class.
+
+5. Client-Server: The client code (where animal_sound is called) acts as a client to the server (the classes that implement Animal), 
+   requesting a service (make_sound), but the server is abstracted away by the interface.
