@@ -1,0 +1,5 @@
+The decorator pattern is a structural pattern that allows behavior to be added to individual objects, either statically or dynamically, without affecting 
+the behavior of other objects from the same class.
+
+The decorator pattern is useful when you want to add responsibilities to objects without subclassing. It involves a set of decorator classes that are used 
+to wrap concrete components.
