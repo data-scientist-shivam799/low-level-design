@@ -1,0 +1,24 @@
+Classes:
+    - RequestSender: responsible for sending HTTP requests.
+    - SitemapParser: for parsing the XML content and extracting URLs.
+    - LoggingObserver: for logging failed access to URLs.
+    - SitemapRequester: coordinates sending requests to URLs extracted from the sitemap and writing the result to an output file.
+
+Functions and Methods:
+    - send_request(url) in RequestSender: sends a GET request to the specified URL and returns True if the response status is OK, 
+      otherwise returns False.
+    - extract_urls() in SitemapParser: extracts unique URLs from the XML content and identifies duplicate URLs.
+    - notify(url, success) in LoggingObserver: appends a message to the output file if the access to the given URL failed.
+    - add_observer(observer) and remove_observer(observer) in SitemapRequester: manage the list of observers.
+    - send_requests(sitemap_url) and notify_observers(url, success) in SitemapRequester: send requests to the URLs extracted 
+      from the sitemap and notify the observers with the URL and success status.
+
+Exception Handling:
+    - Try-except blocks are used to handle exceptions, such as requests.RequestException and ET.ParseError.
+
+File I/O:
+    - Reading and writing to files is performed to read the sitemap content, write validation output, and log failed access to URLs.
+
+Main Execution:
+    - The main block instantiates objects, sets up observers, and calls the send_requests method of SitemapRequester to start 
+      the validation process.
